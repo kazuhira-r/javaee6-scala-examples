@@ -37,7 +37,7 @@ object UserServiceTest {
   @Deployment
   def createDeployment: WebArchive =
     ShrinkWrap
-      .create(classOf[WebArchive], "javaee6-web.war")
+      .create(classOf[WebArchive], "arquillian-test.war")
       //.addClasses(classOf[UserService], classOf[User]) // Class単位で指定
       .addPackages(true, "javaee6.web")
       .addAsResource("META-INF/persistence.xml")

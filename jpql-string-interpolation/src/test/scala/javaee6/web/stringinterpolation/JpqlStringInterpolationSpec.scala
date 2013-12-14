@@ -31,7 +31,7 @@ class JpqlStringInterpolationSpec extends FunSpec with BeforeAndAfterAll {
   describe("Standard Jpql") {
     it("find One id equals & literal") {
       val emf = Persistence.createEntityManagerFactory("javaee6.web.pu")
-      implicit val em = emf.createEntityManager
+      val em = emf.createEntityManager
 
       em.createQuery("SELECT u FROM User u WHERE id = 1", classOf[User])
         .getSingleResult should be (User(1, "カツオ", "磯野", 11))

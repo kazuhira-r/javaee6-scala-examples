@@ -19,8 +19,8 @@ class JndiLookupResourceAsScala {
       initialContext.lookup("java:comp/BeanManager").asInstanceOf[BeanManager]
 
     // このコードは、コンパイルできない  
-    val beans = bm.getBeans(classOf[CalcService])
-    val bean = bm.resolve(beans)
+    val beans: java.util.Set[Bean[_]] = bm.getBeans(classOf[CalcService])
+    val bean: Bean[_] = bm.resolve(beans)
     val calcService =
       bm
         .getReference(bean, classOf[CalcService], bm.createCreationalContext(bean))
